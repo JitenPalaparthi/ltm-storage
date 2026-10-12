@@ -55,4 +55,23 @@ sudo mount /dev/vg_data/lv_data /mnt/data
 
 ```
 
+# storage is full on elb volume
+
+```baah
+sudo pvresize /dev/xvde
+
+sudo pvs
+
+sudo vgs
+
+sudo lvextend -l +100%FREE /dev/vg_data/lv_data
+
+df -hT /mnt/data # you dont find it is expanded
+
+# expand etx4 file system to the newly allocated storage
+sudo resize2fs /dev/vg_data/lv_data
+
+df -hT /mnt/data
+
+```
 
