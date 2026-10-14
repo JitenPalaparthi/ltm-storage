@@ -91,4 +91,19 @@ sudo apt install fio sysstat -y
 sudo dd if=/dev/zero of=/mnt/data/testfile.bin \
   bs=1M count=1024 oflag=direct status=progress
 
+# test sequential write through put
+
+sudo fio \
+  --name=seq_write \
+  --filename=/mnt/data/fio-test.bin \
+  --size=1G \
+  --rw=write \
+  --bs=1M \
+  --ioengine=libaio \
+  --direct=1 \
+  --iodepth=16 \
+  --runtime=30 \
+  --time_based \
+  --group_reporting
+
 
