@@ -53,6 +53,12 @@ sudo mkdir -p /mnt/data
 
 sudo mount /dev/vg_data/lv_data /mnt/data
 
+# create another volume
+
+sudo lvcreate -L 5G -n lv_backup vg_data
+
+follow all steps to create fs and also mount
+
 ```
 
 # storage is full on elb volume
