@@ -81,3 +81,14 @@ df -hT /mnt/data
 
 ```
 
+# benchmarking tools 
+
+```bash
+# install tools
+sudo apt update
+sudo apt install fio sysstat -y
+# generate a testfils
+sudo dd if=/dev/zero of=/mnt/data/testfile.bin \
+  bs=1M count=1024 oflag=direct status=progress
+
+
