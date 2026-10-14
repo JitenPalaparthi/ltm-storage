@@ -106,4 +106,19 @@ sudo fio \
   --time_based \
   --group_reporting
 
+# random writes
+
+sudo fio \
+  --name=random_write \
+  --filename=/mnt/data/random-test.bin \
+  --size=1G \
+  --rw=randwrite \
+  --bs=4k \
+  --ioengine=libaio \
+  --direct=1 \
+  --iodepth=16 \
+  --runtime=30 \
+  --time_based \
+  --group_reporting
+
 
